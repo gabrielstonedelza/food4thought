@@ -1,0 +1,33 @@
+{% extends "f4t/base.html"%}
+{% load humanize %}
+{% block title %}
+All Thoughts
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h3 class="text-center">All Thoughts</h3>
+    <br>
+    <div class="all-thoughts">
+        {% for post in posts %}
+        <a href="{{ post.get_absolute_url }}" style="color:#fff;">
+            <div class="thought-box z-depth-1-half">
+                {% if post.audio_content %}
+                    <audio controls controlsList="nodownload" src="{{ post.audio_content.url }}"></audio>
+                {% endif %}
+                <br>
+                <p class="pcontent">{{ post.title|slice:":40" }}...</p>
+                <div class="actions">
+                    <i class="fas fa-eye mr-2"></i>{{ post.views }} 
+                     |
+                    <i class="fas fa-thumbs-up ml-2"></i> {{ post.likes }} | {{ post.date_posted |naturaltime }}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+  <br>
+</div>
+<br>
+{% endblock %}

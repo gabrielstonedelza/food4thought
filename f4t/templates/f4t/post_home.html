@@ -1,0 +1,37 @@
+{% extends "f4t/base.html"%}
+{% load humanize %}
+{% block title %}
+Thought today
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="my-home-post-wrapper">
+        <!-- latest post goes here -->
+        {% for post in post_today %}
+            <h3 class="text-center">{{ post.title }}</h3>
+            <br>
+            <p>{{ post.post_content }}</p>
+            <br>
+            <b class="mb-3">Listen to the audio content</b>
+            <br>
+            {% if post.audio_content %}
+            <div class="my-audio">
+                <audio src="{{ post.audio_content.url }}" controls controlsList="nodownload" type="audio/mp3" ></audio>
+                <br>
+                <div>
+
+                <!-- <a class="animated bounce infinite" title="download attached file" href="{{ post.audio_content.url }}"  download="{{post.title}}" target="_blank">
+                    <i class="fas fa-download ml -3"></i> 
+                    </a> -->
+                </div>
+            </div>
+            {% endif %}
+
+            
+        {% endfor %}
+    </div>
+    <br>
+</div>
+<br>
+{% endblock content %}

@@ -1,0 +1,13 @@
+
+<div id="mysearch_results">
+    {% if posts %}
+    <ul id="search-results" class="list-group pt-2">
+        {% for post in posts %}
+            <li class="list-group-item pt-1 d-flex">
+                <a class="mt-1 text-muted" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+

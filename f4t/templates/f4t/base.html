@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="{% static 'f4t/images/connectdjango.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'f4t/css/bootstrap.min.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'f4t/css/mdb.min.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'f4t/css/all.min.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'f4t/css/animate.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'f4t/css/blog.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'f4t/css/post_home.css'%}" type="text/css">
+   <title>
+    {% block title %}  {% endblock %}
+  </title>
+</head>
+<body>
+    {% include "f4t/navbar.html" %}
+    <br>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-xs-6 col-sm-6 col-md-6 ml-auto mr-auto">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="animated bounce alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% block content %}
+
+  {% endblock %}
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="{% static 'f4t/js/jquery-3.4.1.min.js'%}"></script>
+<script src="{% static 'f4t/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'f4t/js/mdb.min.js'%}"></script>
+<script src="{% static 'f4t/js/ajax.js'%}"></script>
+<script src="{% static 'f4t/js/jscode.js'%}"></script>
+<script src="{% static 'f4t/js/for_comment.js'%}"></script>
+<script src="{% static 'f4t/js/all.min.js'%}"></script>
+</body>
+</html>

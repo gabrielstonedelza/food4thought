@@ -1,0 +1,82 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.5;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+
+a.butt {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0C4B33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.butt:hover {
+  background: #C9F0DD;
+  color: #000;
+}
+
+a.delete {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ff0000;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.delete:hover {
+  background: #dd1515;
+}
+
+button.butt {
+  position: relative;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0C4B33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+button.butt:hover {
+  background: #C9F0DD;
+  color: #000;
+}
+
+nav {
+  background: -webkit-gradient(linear, left bottom, right top, from(#65dfc9));
+  background: linear-gradient(to right top, #65dfc9);
+}
+
+nav a.navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+
+nav #navbarTogglerDemo02 ul li {
+  font-weight: bold;
+}
+
+nav #navbarTogglerDemo02 ul li a {
+  color: white !important;
+}
+/*# sourceMappingURL=post_home.css.map */

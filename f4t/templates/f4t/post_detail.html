@@ -1,0 +1,67 @@
+{% extends "f4t/base.html"%}
+{% load humanize %}
+{% block title %}
+{{ post.title }}
+{% endblock %}
+{% block content %}
+
+<div id="comment-trigger-like-section">
+    <!-- <a href="" data-toggle="modal" data-target="#commentModal" class="butt mb-2" >
+        <i class="fas fa-comment"></i> <span class="text-white">{{ comments.count }}</span>
+    </a>
+    <br> -->
+    <div id="like_section" class="mt-3">
+        {% include "f4t/like_section.html" %}
+    </div>
+</div>
+<div class="container">
+    <div class="mypost-detail-container">
+      <div class="mypost-detail-img">
+          <h2>{{ post.title }}</h2>
+          <small class="text-muted">{{ post.subtitle }}</small>
+          <br>
+          <small class="text-muted">{{ post.date_posted|naturaltime }}</small>
+      </div>
+
+      <div class="mypost-other-details">
+        <br>
+        <div class="mypost-detail-content">
+            {{ post.post_content }}
+                <br>
+                {% if post.audio_content %}
+                <small class="text-muted">Listen to audio below</small>
+                <br>
+                <audio src="{{ post.audio_content.url }}" type='audio/mp3' controls controlsList="nodownload">Listen to audio</audio>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    <br>
+    
+</div>
+<br><br>
+
+  <!-- Full Height Modal Right -->
+  <div class="modal fade right" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+  
+    <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+      <div class="modal-content" id="mycommentModal">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Comments</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="comments_section">
+          {% include "f4t/comment_form.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Full Height Modal Right -->
+{% endblock %}
+
+
+

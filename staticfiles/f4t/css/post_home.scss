@@ -1,0 +1,22 @@
+@import './variables';
+
+// navbar
+nav{
+    background: linear-gradient(to right top,#65dfc9);
+    a.navbar-brand{
+        font-weight: bold;
+        color: white;
+    }
+
+    #navbarTogglerDemo02{
+        ul{
+            li{
+                font-weight: bold;
+                a{
+                    color: white !important;
+                }
+            }
+        }
+    }
+
+}

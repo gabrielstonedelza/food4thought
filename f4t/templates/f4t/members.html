@@ -1,0 +1,36 @@
+{% extends "f4t/base.html"%}
+{% load crispy_forms_tags %}
+{% block title %}
+Our Members
+{% endblock %}
+{% block content%}
+<div class="container">
+    <div class="addmember">
+        <a title="join food for thought" href='{% url "new_member" %}'>
+            <i class="fas fa-plus-circle"></i>
+        </a>
+    </div>
+    <br>
+    <h3 class="text-center">Meet our members</h3>
+    <br>
+    <h6 class="text-center" >
+        <a style="color:white !important;" href="https://web.facebook.com/groups/142903436398/members" target="_blank">View our facebook members </a>
+    </h6>
+    <br>
+    <br>
+    <div class="my-thought-members">
+        <br>
+        {% for member in all_members %}
+            <div class="member-box z-depth-1-half">
+                <!-- member photo -->
+                {% if member.photo %}
+                <img src="{{ member.photo.url }}" alt="">
+                {%  endif %}
+                <small>{{ member.name }}</small>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% load humanize %}
+{% load crispy_forms_tags%}
+<form  class="comment-form" action="." >
+{% csrf_token %}
+<fieldset class="form-group">
+  {{ form|crispy}}
+</fieldset>
+<button type="submit">Save</button>
+</form>
+<hr>
+<!--comments section  -->
+<div class="comment-section">
+{% for comment in comments %}
+<blockquote class="blockquote">
+    <div>
+    <small class="text-muted">{{ comment.name }}</small>
+    <small class="text-muted">{{ comment.comment }}</small><br>
+    <small class="text-muted" style="font-size:13px">{{ comment.date_of_comment|naturaltime }}</small>
+    </div>
+</blockquote>
+{% endfor %}
+</div>
