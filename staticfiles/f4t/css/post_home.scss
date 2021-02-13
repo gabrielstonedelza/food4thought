@@ -1,14 +1,14 @@
 @import './variables';
 
-// navbar
+//navbar
 nav{
-    background: linear-gradient(to right top,#65dfc9);
+    background: #97BC62FF;
     a.navbar-brand{
         font-weight: bold;
-        color: white;
+        color: white !important;
     }
 
-    #navbarTogglerDemo02{
+    #navbarSupportedContent{
         ul{
             li{
                 font-weight: bold;
@@ -18,5 +18,166 @@ nav{
             }
         }
     }
+}
 
+// for post home
+.my-home-post-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    h3{
+        font-weight: bold;
+        padding: 15px;
+    }
+    p{
+        letter-spacing: -0.003em;
+        line-height: 32px;
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .my-audio{
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+// for all posts
+.all-thoughts{
+    display: flex;
+    // grid-template-columns: repeat(audo-fit,minmax(350px,1fr));
+    // gap: 1rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    .thought-box{
+        width: 350px;
+        height: 180px;
+        // background-color: #757272;
+        background: #97BC62FF;
+        padding: 20px;
+        border-radius: 10px;
+        // color: #fff !important;
+        transition: 1.2s ease;
+        p.pcontent{
+            font-size: 18px;
+        }
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+// for thought detail
+.mypost-detail-container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: auto;
+
+
+    .mypost-detail-content{
+        margin-top: 10px;
+        letter-spacing: -0.003em;
+        line-height: 32px;
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+    }
+}
+
+// for members
+.my-thought-members{
+    display: flex;
+    padding: 20px;
+    gap: 1rem;
+    flex-wrap: wrap;
+    .member-box{
+        width: 230px;
+        height: 300px;
+        background: #97BC62FF;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: solid 2px white;
+        }
+        small{
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+}
+
+.addmember{
+    padding: 20px;
+    position: fixed;
+    margin-top: 40px;
+    margin-left: 40px;
+
+    a .fa-plus-circle{
+        font-size: 30px;
+        color: rgb(44, 70, 7);
+    }
+}
+.about-us{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    p.thought-about{
+        letter-spacing: -0.003em;
+        line-height: 32px;
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .social-media{
+        a{
+            .fa-facebook-square{
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+// media queries
+@media(max-width: 500px){
+    // all thoughts
+    .all-thoughts{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    // members
+    .my-thought-members{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+#comment-trigger-like-section {
+    padding: 20px;
+    position: fixed;
+    margin-top: 150px;
 }

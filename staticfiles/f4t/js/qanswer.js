@@ -1,11 +1,4 @@
 $(function(){
-
-  setTimeout(function(){
-    $(".alert").slideUp(3000);
-  },5000);
-
- 
-
   function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

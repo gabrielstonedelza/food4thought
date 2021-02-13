@@ -19,22 +19,4 @@ $(function () {
       },
     });
   });
-
-  // hide and show like and comment box
-  var lastScrollTop = 0;
-
-$(window).scroll(function() {
-
-    var scrollTop = $(this).scrollTop();
-    
-    if (scrollTop < lastScrollTop) {
-        
-        $('#comment-trigger-like-section').hide();
-    } else {
-     
-        $('#comment-trigger-like-section').show();
-    }
-    
-    lastScrollTop = scrollTop;
-});
 });
