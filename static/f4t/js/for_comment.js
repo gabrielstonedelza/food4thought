@@ -74,6 +74,7 @@ $(function(){
 
   // hide and show like and comment box
   var lastScrollTop = 0;
+})
 
 
   
