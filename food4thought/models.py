@@ -6,14 +6,13 @@ from django.utils.text import slugify
 
 class Post(models.Model):
     title = models.CharField(max_length=300)
-    subtitle = models.CharField(max_length=200,blank=True)
+    subtitle = models.CharField(max_length=200, blank=True)
     post_content = models.TextField()
-    likes = models.IntegerField(default=0,blank=True)
-    views = models.IntegerField(default=0,blank=True)
-    audio_content = models.FileField(upload_to="post_audio_files",blank=True)
+    likes = models.IntegerField(default=0, blank=True)
+    views = models.IntegerField(default=0, blank=True)
+    audio_content = models.FileField(upload_to="post_audio_files", blank=True)
     slug = models.SlugField(max_length=100, default='')
     date_posted = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return self.title
@@ -24,7 +23,7 @@ class Post(models.Model):
             'slug': self.slug
         }
         return reverse('post_detail', kwargs=kwargs)
-    
+
     def save(self, *args, **kwargs):
         value = self.title
         self.slug = slugify(value, allow_unicode=True)
@@ -32,21 +31,20 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post,on_delete=models.CASCADE)
-    name = models.CharField(max_length=150,blank=True,default="Anonymous")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=150, blank=True, default="Anonymous")
     comment = models.TextField()
     date_of_comment = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return f"{self.name} commented on the post '{self.post.title}'"
 
 
 class BecomeMember(models.Model):
-    name = models.CharField(max_length=200,unique=True)
-    email = models.EmailField(max_length=250,unique=True)
-    phone = models.CharField(max_length=100,blank=True)
-    photo = models.ImageField(upload_to='members_photo',blank=True,default='default_member.jpg')
+    name = models.CharField(max_length=200, unique=True)
+    email = models.EmailField(max_length=250, unique=True)
+    phone = models.CharField(max_length=100, blank=True)
+    photo = models.ImageField(upload_to='members_photo', blank=True, default='default_member.jpg')
     date_joined = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
