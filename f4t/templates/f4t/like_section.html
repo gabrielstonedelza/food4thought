@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 <div class="d-flex">
-    <form action="{% url 'like_post' post.slug %}" method="POST" id="like_post_form">
+    <form action="{% url 'like_post' post.id %}" method="POST" id="like_post_form">
         {% csrf_token %}
-        <button type="submit" class="butt" id="like_post_button" value="{{ post.slug }}"><i class="far fa-thumbs-up"></i> <span class="ml-2 ">{{ post.likes }}</span></button>
+        <button type="submit" class="butt" id="like_post_button" value="{{ post.id }}"><i class="far fa-thumbs-up"></i> <span class="ml-2 ">{{ post.likes }}</span></button>
     </form>
 </div>

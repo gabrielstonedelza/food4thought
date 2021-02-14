@@ -19,14 +19,16 @@
       <div class="mypost-detail-img">
           <h2>{{ post.title }}</h2>
           <small class="text-muted">{{ post.subtitle }}</small>
-          <br>
           <small class="text-muted">{{ post.date_posted|naturaltime }}</small>
       </div>
 
       <div class="mypost-other-details">
-        <br>
         <div class="mypost-detail-content">
+          {% if post.post_content %}
             {{ post.post_content }}
+          {% else %}
+            <p>Sorry,there is no text content for this thought</p>
+          {% endif %}
                 <br>
                 {% if post.audio_content %}
                 <small class="text-muted">Listen to audio below</small>

@@ -34,8 +34,8 @@ def all_posts(request):
     return render(request, 'f4t/allposts.html', context)
 
 
-def post_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug)
+def thought_detail(request, id):
+    post = get_object_or_404(Post, id=id)
 
     comments = Comment.objects.filter(post=post).order_by('-date_of_comment')
     comments_count = comments.count()
@@ -70,8 +70,8 @@ def post_detail(request, slug):
     return render(request, "f4t/post_detail.html", context)
 
 
-def like_post(request, slug):
-    post = get_object_or_404(Post, slug=slug)
+def like_post(request, id):
+    post = get_object_or_404(Post, id=id)
 
     post.likes += 1
     post.save()
@@ -97,7 +97,7 @@ def create_post(request):
             post_content = form.cleaned_data.get('post_content')
             audio_file = form.cleaned_data.get('audio_content')
             Post.objects.create(title=title, subtitle=subtitle, audio_content=audio_file, post_content=post_content)
-            return redirect('allposts')
+            return redirect('post_home')
 
         else:
             error_message = "sorry something went wrong"

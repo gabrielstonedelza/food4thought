@@ -12,10 +12,10 @@ class CommentsForm(forms.ModelForm):
         fields = ['name','comment']
 
 class PostForm(forms.ModelForm):
-    title = forms.CharField(label="",widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "enter thought title"}))
-    subtitle = forms.CharField(label="",widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " subtitle"}))
-    post_content = forms.CharField(label="", widget=forms.Textarea(attrs={"class": "form-control", "placeholder": "blog content", "id": "my_blog_content"}))
-    audio_content = forms.FileField(label="",widget=forms.FileInput(attrs={"class": "form-control", "placeholder": "choose audio content"}))
+    # title = forms.CharField(label="",widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "enter thought title"}))
+    # subtitle = forms.CharField(label="",widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " subtitle"}))
+    # post_content = forms.CharField(label="", widget=forms.Textarea(attrs={"class": "form-control", "placeholder": "blog content", "id": "my_blog_content"}))
+    # audio_content = forms.FileField(label="",widget=forms.FileInput(attrs={"class": "form-control", "placeholder": "choose audio content"}))
 
     class Meta:
         model = Post
