@@ -11,7 +11,6 @@ class Post(models.Model):
     likes = models.IntegerField(default=0, blank=True)
     views = models.IntegerField(default=0, blank=True)
     audio_content = models.FileField(upload_to="post_audio_files", blank=True,help_text="select audio content")
-    # slug = models.SlugField(max_length=100, default='')
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
