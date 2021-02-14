@@ -216,14 +216,14 @@ nav #navbarSupportedContent ul li a {
   font-size: 18px;
 }
 
-.addmember {
+.addmember, .my-new-thought-button {
   padding: 20px;
   position: fixed;
   margin-top: 40px;
   margin-left: 40px;
 }
 
-.addmember a .fa-plus-circle {
+.addmember a .fa-plus-circle, .my-new-thought-button a .fa-plus-circle {
   font-size: 30px;
   color: #2c4607;
 }

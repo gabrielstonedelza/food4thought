@@ -6,6 +6,14 @@ Thought today
 
 {% block content %}
 
+<!-- add new thought button  -->
+
+<div class="my-new-thought-button">
+    <a title="Add new thought today" href="{% url 'create_post' %}">
+        <i class="fas fa-plus-circle"></i>
+    </a>
+</div>
+<br>
 <div class="container">
     <div class="my-home-post-wrapper">
         <!-- latest post goes here -->
