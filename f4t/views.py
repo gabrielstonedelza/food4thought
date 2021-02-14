@@ -96,7 +96,7 @@ def create_post(request):
             subtitle = form.cleaned_data.get('subtitle')
             post_content = form.cleaned_data.get('post_content')
             audio_file = form.cleaned_data.get('audio_content')
-            Post.objects.create(title=title, subtitle=subtitle, audio_content=audio_file, post_content=post_content)
+            Post.objects.create(title=title, subtitle=subtitle,  post_content=post_content, audio_content=audio_file)
             return redirect('post_home')
 
         else:
