@@ -21,4 +21,4 @@ class PostForm(forms.ModelForm):
 class MemberForm(forms.ModelForm):
     class Meta:
         model = BecomeMember
-        fields = ['name','email','phone','photo']
+        fields = ['name','email','phone']

@@ -129,9 +129,8 @@ def become_amember(request):
             name = form.cleaned_data.get('name')
             email = form.cleaned_data.get('email')
             phone = form.cleaned_data.get('phone')
-            photo = form.cleaned_data.get('photo')
-
-            BecomeMember.objects.create(name=name, email=email, phone=phone, photo=photo)
+            
+            BecomeMember.objects.create(name=name, email=email, phone=phone)
             return redirect('members')
 
     else:

@@ -22,10 +22,6 @@ Our Members
         <br>
         {% for member in all_members %}
             <div class="member-box z-depth-1-half">
-                <!-- member photo -->
-                {% if member.photo %}
-                <img src="{{ member.photo.url }}" alt="">
-                {%  endif %}
                 <small>{{ member.name }}</small>
             </div>
         {% endfor %}
