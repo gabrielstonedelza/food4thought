@@ -32,7 +32,6 @@ class Comment(models.Model):
 class BecomeMember(models.Model):
     name = models.CharField(max_length=200, unique=True)
     email = models.EmailField(max_length=250, unique=True)
-    phone = models.CharField(max_length=100, blank=True)
     date_joined = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
