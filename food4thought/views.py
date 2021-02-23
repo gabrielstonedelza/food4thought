@@ -4,7 +4,7 @@ from .serializers import PostSerializer, CommentSerializer, BecomeMemberSerializ
 from rest_framework import viewsets
 
 class ThoughtLists(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('-date_posted')
     serializer_class = PostSerializer
 
 class MembersLists(viewsets.ModelViewSet):
