@@ -6,7 +6,6 @@ from django.http import Http404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from django.views.decorators.csrf import csrf_exempt
 
 
 @api_view(['GET'])
@@ -24,7 +23,7 @@ def post_list(request):
 
 
 @api_view(['GET'])
-@csrf_exempt
+
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
     serializer = PostSerializer(post, many=False)
