@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Post, Comment, BecomeMember
 
 
+
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
@@ -11,10 +12,13 @@ class PostSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'post', 'name', 'comment', 'date_of_comment']
+        fields = ['id', 'post', 'comment', 'date_of_comment']
 
 
 class BecomeMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = BecomeMember
         fields = ['id', 'name', 'email','date_joined']
+
+
+

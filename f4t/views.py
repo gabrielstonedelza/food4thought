@@ -44,9 +44,8 @@ def thought_detail(request, id):
     if request.method == "POST":
         form = CommentsForm(request.POST)
         if form.is_valid():
-            name = request.POST.get('name')
             comment = request.POST.get('comment')
-            comment = Comment.objects.create(name=name, post=post, comment=comment)
+            comment = Comment.objects.create(post=post, comment=comment)
             comment.save()
 
         else:
