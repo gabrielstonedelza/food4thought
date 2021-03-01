@@ -14,3 +14,7 @@ class MembersLists(viewsets.ModelViewSet):
 class Just2Day(viewsets.ModelViewSet):
     queryset = Post.objects.all()[:1]
     serializer_class = PostSerializer
+
+class CommentOnPost(viewsets.ModelViewSet):
+    queryset = Comment.objects.all().order_by('-date_of_comment')
+    serializer_class = CommentSerializer
