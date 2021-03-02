@@ -20,13 +20,12 @@ class Post(models.Model):
         return reverse('post_detail', args=({self.pk}))
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, blank=True, default="Anonymous")
     comment = models.TextField()
     date_of_comment = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.name} commented on the post '{self.post.title}'"
+        return self.name
 
 
 class BecomeMember(models.Model):
