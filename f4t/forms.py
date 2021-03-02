@@ -15,7 +15,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'subtitle', 'post_content','audio_content']
+        fields = ['title',  'post_content','audio_content']
 
 
 class MemberForm(forms.ModelForm):

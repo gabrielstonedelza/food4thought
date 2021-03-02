@@ -7,7 +7,6 @@ from django.utils import timezone
 
 class Post(models.Model):
     title = models.CharField(max_length=300)
-    subtitle = models.CharField(max_length=200, blank=True)
     post_content = models.TextField(blank=True, help_text="You can leave this field blank if you don't need to add text")
     likes = models.IntegerField(default=0, blank=True)
     views = models.IntegerField(default=0, blank=True)
