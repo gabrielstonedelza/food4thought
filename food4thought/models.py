@@ -8,7 +8,6 @@ from django.utils import timezone
 class Post(models.Model):
     title = models.CharField(max_length=300)
     post_content = models.TextField(blank=True, help_text="You can leave this field blank if you don't need to add text")
-    likes = models.IntegerField(default=0, blank=True)
     views = models.IntegerField(default=0, blank=True)
     audio_content = models.FileField(upload_to="post_audio_files", blank=True,help_text="select audio content")
     date_posted = models.DateTimeField(auto_now_add=True)
