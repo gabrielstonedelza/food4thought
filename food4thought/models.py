@@ -2,6 +2,7 @@ from django.db import models
 from django.shortcuts import reverse
 from PIL import Image
 from django.utils.text import slugify
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -22,7 +23,8 @@ class Post(models.Model):
 class Comment(models.Model):
     name = models.CharField(max_length=150, blank=True, default="Anonymous")
     comment = models.TextField()
-    date_of_comment = models.DateTimeField(auto_now_add=True)
+    date_of_comment = models.DateField(default=timezone.now)
+    time_of_comment = models.TimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
