@@ -36,3 +36,14 @@ class BecomeMember(models.Model):
     def __str__(self):
         return f"{self.name} just became a member of food4thought"
 
+    
+class Testimony(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    testimony = models.TextField()
+    date_of_testimony = models.DateField(default=timezone.now)
+    time_of_testimony = models.TimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.name } just gave a testimony"
+
+

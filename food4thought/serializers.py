@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Comment, BecomeMember
+from .models import Post, Comment, BecomeMember, Testimony
 
 
 
@@ -21,5 +21,10 @@ class BecomeMemberSerializer(serializers.ModelSerializer):
         model = BecomeMember
         fields = ['id', 'name', 'email','date_joined']
 
+
+class TestimonySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Testimony
+        fields = ['id','name','testimony']
 
 
