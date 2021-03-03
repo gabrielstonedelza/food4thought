@@ -25,6 +25,7 @@ class BecomeMemberSerializer(serializers.ModelSerializer):
 class TestimonySerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimony
-        fields = ['id','name','testimony']
+        fields = ['id', 'name', 'testimony',
+                  'date_of_testimony', 'time_of_testimony']
 
 
