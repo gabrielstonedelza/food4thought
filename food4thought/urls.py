@@ -7,7 +7,6 @@ router.register('thoughtlist', views.ThoughtLists)
 router.register('members', views.MembersLists)
 router.register('comments', views.CommentOnPost)
 router.register('testimonies', views.TestimonyView)
-# router.register('just2day',views.Just2Day)
 
 urlpatterns = [
     path('api/', include(router.urls))
