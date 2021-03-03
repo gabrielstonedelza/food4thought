@@ -21,8 +21,7 @@ class Post(models.Model):
 class Comment(models.Model):
     name = models.CharField(max_length=150, blank=True, default="Anonymous")
     comment = models.TextField()
-    date_of_comment = models.DateField(default=timezone.now)
-    time_of_comment = models.TimeField(default=timezone.now)
+    date_of_comment = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -40,8 +39,8 @@ class BecomeMember(models.Model):
 class Testimony(models.Model):
     name = models.CharField(max_length=200, unique=True)
     testimony = models.TextField()
-    date_of_testimony = models.DateField(default=timezone.now)
-    time_of_testimony = models.TimeField(default=timezone.now)
+    date_of_testimony = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
         return f"{self.name } just gave a testimony"

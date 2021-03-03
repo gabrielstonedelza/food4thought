@@ -13,7 +13,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ['id', 'name', 'comment',
-                  'date_of_comment', 'time_of_comment']
+                  'date_of_comment']
 
 
 class BecomeMemberSerializer(serializers.ModelSerializer):
@@ -26,6 +26,6 @@ class TestimonySerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimony
         fields = ['id', 'name', 'testimony',
-                  'date_of_testimony', 'time_of_testimony']
+                  'date_of_testimony']
 
 

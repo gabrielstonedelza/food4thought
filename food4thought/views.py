@@ -27,5 +27,5 @@ class CommentOnPost(viewsets.ModelViewSet):
 
 
 class TestimonyView(viewsets.ModelViewSet):
-    queryset = Testimony.objects.all().order_by('date_of_testimony')
+    queryset = Testimony.objects.all().order_by('-date_of_testimony')
     serializer_class = TestimonySerializer
