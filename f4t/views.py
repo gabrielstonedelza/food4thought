@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from food4thought.models import Post, Comment, BecomeMember
+from food4thought.models import Thought, Comment, BecomeMember
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.db.models import Q
-from .forms import PostForm, CommentsForm, MemberForm
+from .forms import ThoughtForm, CommentsForm, MemberForm
 
 
 def csrf_failure(request, reason=""):
@@ -13,8 +13,8 @@ def csrf_failure(request, reason=""):
 
 
 def post_home(request):
-    posts = Post.objects.all().order_by('-date_posted')
-    post_today = Post.objects.all().order_by('-date_posted')[:1]
+    posts = Thought.objects.all().order_by('-date_posted')
+    post_today = Thought.objects.all().order_by('-date_posted')[:1]
 
     context = {
         'posts': posts,
@@ -25,7 +25,7 @@ def post_home(request):
 
 
 def all_posts(request):
-    all_posts = Post.objects.all().order_by('-date_posted')
+    all_posts = Thought.objects.all().order_by('-date_posted')
 
     context = {
         'posts': all_posts
@@ -35,7 +35,7 @@ def all_posts(request):
 
 
 def thought_detail(request, id):
-    post = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Thought, id=id)
 
     comments = Comment.objects.filter(post=post).order_by('-date_of_comment')
     comments_count = comments.count()
@@ -90,19 +90,20 @@ def create_post(request):
     error_message = ""
 
     if request.method == "POST":
-        form = PostForm(request.POST, request.FILES)
+        form = ThoughtForm(request.POST, request.FILES)
         if form.is_valid():
             title = form.cleaned_data.get('title')
-            subtitle = form.cleaned_data.get('subtitle')
-            post_content = form.cleaned_data.get('post_content')
+            author = form.cleaned_data.get('author')
+            bible_quotations = form.cleaned_data.get('bible_quotations')
             audio_file = form.cleaned_data.get('audio_content')
-            Post.objects.create(title=title, subtitle=subtitle,  post_content=post_content, audio_content=audio_file)
+            Thought.objects.create(
+                title=title, author=author,  bible_quotations=bible_quotations, audio_content=audio_file)
             return redirect('post_home')
 
         else:
             error_message = "sorry something went wrong"
     else:
-        form = PostForm()
+        form = ThoughtForm()
 
     context = {
         "form": form,

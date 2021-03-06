@@ -1,12 +1,13 @@
 from rest_framework import serializers
-from .models import Post, Comment, BecomeMember, Testimony
+from .models import Thought, Comment, BecomeMember, Testimony
 
 
 
-class PostSerializer(serializers.ModelSerializer):
+class ThoughtSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Post
-        fields = ['id', 'title', 'post_content', 'audio_content', 'date_posted']
+        model = Thought
+        fields = ['id', 'title', 'author', 'bible_quotations',
+                  'audio_content', 'date_posted']
 
 
 class CommentSerializer(serializers.ModelSerializer):

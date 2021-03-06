@@ -1,5 +1,5 @@
 from django import forms
-from food4thought.models import Post,Comment,BecomeMember
+from food4thought.models import Thought,Comment,BecomeMember
 
 
 class CommentsForm(forms.ModelForm):
@@ -11,11 +11,11 @@ class CommentsForm(forms.ModelForm):
         model = Comment
         fields = ['name','comment']
 
-class PostForm(forms.ModelForm):
+class ThoughtForm(forms.ModelForm):
 
     class Meta:
-        model = Post
-        fields = ['title',  'post_content','audio_content']
+        model = Thought
+        fields = ['title',  'author','bible_quotations','audio_content']
 
 
 class MemberForm(forms.ModelForm):

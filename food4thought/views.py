@@ -1,5 +1,5 @@
-from .models import Post, Comment, BecomeMember, Testimony
-from .serializers import PostSerializer, CommentSerializer, BecomeMemberSerializer, TestimonySerializer
+from .models import Thought, Comment, BecomeMember, Testimony
+from .serializers import ThoughtSerializer, CommentSerializer, BecomeMemberSerializer, TestimonySerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
@@ -7,8 +7,8 @@ from rest_framework import viewsets
 
 
 class ThoughtLists(viewsets.ModelViewSet):
-    queryset = Post.objects.all().order_by('-date_posted')
-    serializer_class = PostSerializer
+    queryset = Thought.objects.all().order_by('-date_posted')
+    serializer_class = ThoughtSerializer
 
 
 class MembersLists(viewsets.ModelViewSet):
@@ -17,8 +17,8 @@ class MembersLists(viewsets.ModelViewSet):
 
 
 class Just2Day(viewsets.ModelViewSet):
-    queryset = Post.objects.all()[:1]
-    serializer_class = PostSerializer
+    queryset = Thought.objects.all()[:1]
+    serializer_class = ThoughtSerializer
 
 
 class CommentOnPost(viewsets.ModelViewSet):
