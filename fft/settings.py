@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['.connectdjango.com',
-                 '157.230.214.75', 'localhost', '127.0.0.1', ]
+                 '104.131.53.109', 'localhost', '127.0.0.1', ]
 
 # Application definition
 
@@ -142,8 +142,3 @@ CORS_ALLOW_ALL_ORIGINS = True
 CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-    ]
-}
