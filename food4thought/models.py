@@ -10,14 +10,16 @@ class Thought(models.Model):
     author = models.CharField(max_length=100)
     bible_quotations = models.CharField(max_length=500)
     views = models.IntegerField(default=0, blank=True)
-    audio_content = models.FileField(upload_to="post_audio_files", blank=True,help_text="select audio content")
-    date_posted = models.DateTimeField(auto_now_add=True)
+    audio_content = models.FileField(
+        upload_to="post_audio_files", blank=True, help_text="select audio content")
+    date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('post_detail', args=({self.pk}))
+
 
 class Comment(models.Model):
     name = models.CharField(max_length=150, blank=True, default="Anonymous")
@@ -36,14 +38,11 @@ class BecomeMember(models.Model):
     def __str__(self):
         return f"{self.name} just became a member of food4thought"
 
-    
+
 class Testimony(models.Model):
     name = models.CharField(max_length=200, unique=True)
     testimony = models.TextField()
     date_of_testimony = models.DateTimeField(auto_now_add=True)
-    
 
     def __str__(self):
         return f"{self.name } just gave a testimony"
-
-
