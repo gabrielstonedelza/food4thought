@@ -18,14 +18,10 @@ Thought today
     <div class="my-home-post-wrapper">
         <!-- latest post goes here -->
         {% for post in post_today %}
-            <h3 class="text-center">{{ post.title }}</h3>
+            <h3 class="text-center">Title: {{ post.title }}</h3>
             <br>
-            {% if post.post_content %}
-            <p>{{ post.post_content }}</p>
-            {% else %}
-            <p>Sorry,there is no text content for this thought.</p>
-            {% endif %}
-            <br>
+            <H6>By: {{ post.author }}</H6>
+        <p>Bible Quotations: {{ post.bible_quotations }}</p>
             <b class="mb-3">Listen to the audio content</b>
             <br>
             {% if post.audio_content %}
