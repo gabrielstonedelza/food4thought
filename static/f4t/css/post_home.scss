@@ -76,6 +76,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  padding: 10px;
 
   .feedbox {
     padding: 20px;
@@ -104,34 +105,54 @@
   position: fixed;
   margin-top: 40px;
   margin-left: 40px;
+  z-index: 2;
 
   a .fa-plus-circle {
     font-size: 30px;
-    color: #292929;
+    color: #7e7878;
   }
 }
-.about-us {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  p.thought-about {
-    letter-spacing: -0.003em;
-    line-height: 32px;
-    font-size: 18px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
+.about-text{
+    padding: 15px;
+    background: #292929;
+    border-radius: 10px;
+}
 
-  .social-media {
-    a {
-      .fa-facebook-square {
-        font-size: 30px;
-      }
+.social-media{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+        img{
+            width: 30px;
+            height: 30px;
+            // border-radius: 50%;
+        }
     }
-  }
 }
 
+.host{
+    padding: 20px;
+    background: #292929;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .social-icons{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        img{
+            width: 50px;
+            height: 50px;
+            // border-radius: 50%;
+        }
+    }
+}
 // media queries
 @media (max-width: 500px) {
   // all thoughts

@@ -171,6 +171,7 @@ button.butt:hover {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 10px;
 }
 
 .my-feedbacks .feedbox {
@@ -203,15 +204,43 @@ button.butt:hover {
   position: fixed;
   margin-top: 40px;
   margin-left: 40px;
+  z-index: 2;
 }
 
 .addmember a .fa-plus-circle,
 .my-new-thought-button a .fa-plus-circle {
   font-size: 30px;
-  color: #292929;
+  color: #7e7878;
 }
 
-.about-us {
+.about-text {
+  padding: 15px;
+  background: #292929;
+  border-radius: 10px;
+}
+
+.social-media {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social-media a img {
+  width: 30px;
+  height: 30px;
+}
+
+.host {
+  padding: 20px;
+  background: #292929;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -225,18 +254,25 @@ button.butt:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.host .social-icons {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 1rem;
 }
 
-.about-us p.thought-about {
-  letter-spacing: -0.003em;
-  line-height: 32px;
-  font-size: 18px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.about-us .social-media a .fa-facebook-square {
-  font-size: 30px;
+.host .social-icons img {
+  width: 50px;
+  height: 50px;
 }
 
 @media (max-width: 500px) {

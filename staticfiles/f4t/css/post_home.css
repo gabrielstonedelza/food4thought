@@ -62,21 +62,12 @@ button.butt:hover {
   color: #000;
 }
 
-nav {
-  background: #97BC62FF;
-}
-
-nav a.navbar-brand {
-  font-weight: bold;
-  color: white !important;
-}
-
-nav #navbarSupportedContent ul li {
-  font-weight: bold;
-}
-
-nav #navbarSupportedContent ul li a {
-  color: white !important;
+.thought2day {
+  background: #292929;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-transition: 1.2s ease;
+  transition: 1.2s ease;
 }
 
 .my-home-post-wrapper {
@@ -105,7 +96,7 @@ nav #navbarSupportedContent ul li a {
   letter-spacing: -0.003em;
   line-height: 32px;
   font-size: 18px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .my-home-post-wrapper .my-audio {
@@ -116,18 +107,15 @@ nav #navbarSupportedContent ul li a {
 }
 
 .all-thoughts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 1.5rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(280px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
 }
 
 .all-thoughts .thought-box {
-  width: 350px;
-  height: 180px;
-  background: #97BC62FF;
+  background: #292929;
   padding: 20px;
   border-radius: 10px;
   -webkit-transition: 1.2s ease;
@@ -135,7 +123,7 @@ nav #navbarSupportedContent ul li a {
 }
 
 .all-thoughts .thought-box p.pcontent {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .all-thoughts .thought-box:hover {
@@ -169,24 +157,89 @@ nav #navbarSupportedContent ul li a {
   letter-spacing: -0.003em;
   line-height: 32px;
   font-size: 18px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
 }
 
-.my-thought-members {
+.my-feedbacks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
-  gap: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 10px;
+}
+
+.my-feedbacks .feedbox {
+  padding: 20px;
+  background: #292929;
+  border-radius: 10px;
+}
+
+.my-thought-members {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(280px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
 }
 
 .my-thought-members .member-box {
-  width: 230px;
-  height: 300px;
-  background: #97BC62FF;
+  padding: 20px;
+  background: #292929;
+  border-radius: 10px;
+}
+
+.my-thought-members .member-box h4 {
+  text-transform: capitalize;
+}
+
+.addmember,
+.my-new-thought-button {
+  padding: 20px;
+  position: fixed;
+  margin-top: 40px;
+  margin-left: 40px;
+  z-index: 2;
+}
+
+.addmember a .fa-plus-circle,
+.my-new-thought-button a .fa-plus-circle {
+  font-size: 30px;
+  color: #7e7878;
+}
+
+.about-text {
+  padding: 15px;
+  background: #292929;
+  border-radius: 10px;
+}
+
+.social-media {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social-media a img {
+  width: 30px;
+  height: 30px;
+}
+
+.host {
+  padding: 20px;
+  background: #292929;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -201,41 +254,13 @@ nav #navbarSupportedContent ul li a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1rem;
 }
 
-.my-thought-members .member-box img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: solid 2px white;
-}
-
-.my-thought-members .member-box small {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.addmember, .my-new-thought-button {
-  padding: 20px;
-  position: fixed;
-  margin-top: 40px;
-  margin-left: 40px;
-}
-
-.addmember a .fa-plus-circle, .my-new-thought-button a .fa-plus-circle {
-  font-size: 30px;
-  color: #2c4607;
-}
-
-.about-us {
+.host .social-icons {
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -245,15 +270,9 @@ nav #navbarSupportedContent ul li a {
   gap: 1rem;
 }
 
-.about-us p.thought-about {
-  letter-spacing: -0.003em;
-  line-height: 32px;
-  font-size: 18px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.about-us .social-media a .fa-facebook-square {
-  font-size: 30px;
+.host .social-icons img {
+  width: 50px;
+  height: 50px;
 }
 
 @media (max-width: 500px) {

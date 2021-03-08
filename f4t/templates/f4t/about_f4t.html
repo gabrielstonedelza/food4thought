@@ -1,25 +1,48 @@
 {% extends "f4t/base.html"%}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block title %}
 About us
 {% endblock %}
 {% block content%}
 
 <div class="container">
-    <div class="about-us">
-            <h2 class="text-center">About Us</h2>
-            <br>
-            <p class="thought-about">WELCOME TO OUR FOODFORTHOUGHT GROUP!
+    <h3 class="text-center mb-4">About Us</h3>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="about-text">
+                <p>
                 Daily FoodForThought is an email service that provides uplifting messages which are intended to lead a better Christian life by following basic Christian principles and provides you with a simple means to extend a Christian hand in friendship to help inspire others to come to understand that God loves them. And best of all it's a FREE service.
                 FoodForThought runs this message as submitted and do not claim to own any copyright privileges on it. The work was submitted to us as an item for distribution, and it was posted solely on the basis of its quality. It is the belief of FoodForThought and that this message is in the common domain.</p>
-                <br>
-                <p>Contact us </p>
+                <p class="text-center">Contact us </p>
                 <div class="social-media">
                     <a title="Visit our facebook page" href="https://web.facebook.com/groups/142903436398" target="_blank">
-                        <i class="fab fa-facebook-square"></i>
+                        <img src="{% static 'f4t/images/facebook.png' %}" alt="">
                     </a>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-6 host mb-3">
+            <h4 class="text-center">Host</h4>
+            <br>
+            <h4 class="text-center">Omanhene Yaw Adu Boakye</h4>
+            <small class="text-muted text-center" style="display: flex;justify-content: center;">(Kessben Fm)</small>
+            <br>
+            <div class="social-icons">
+                <a href="">
+                    <img src="{% static 'f4t/images/facebook.png' %}" alt="">
+                </a>
+                <a href="">
+                    <img src="{% static 'f4t/images/instagram.png' %}" alt="">
+                </a>
+            </div>
 
+        </div>
     </div>
+    <!-- about host -->
+    <br>
+    
 </div>
+<br>
+<br>
 {% endblock %}
