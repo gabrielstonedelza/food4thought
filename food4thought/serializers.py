@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Thought, Comment, BecomeMember, Testimony
 
 
-
 class ThoughtSerializer(serializers.ModelSerializer):
     class Meta:
         model = Thought
@@ -20,7 +19,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class BecomeMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = BecomeMember
-        fields = ['id', 'name', 'email','date_joined']
+        fields = ['id', 'name', 'email', 'date_joined']
 
 
 class TestimonySerializer(serializers.ModelSerializer):
@@ -28,5 +27,3 @@ class TestimonySerializer(serializers.ModelSerializer):
         model = Testimony
         fields = ['id', 'name', 'testimony',
                   'date_of_testimony']
-
-
