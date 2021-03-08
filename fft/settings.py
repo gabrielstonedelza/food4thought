@@ -27,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 # ALLOWED_HOSTS = ['.connectdjango.com',
 #                  '104.131.53.109', 'localhost', '127.0.0.1', ]
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS","127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 # Application definition
 
@@ -85,17 +85,17 @@ WSGI_APPLICATION = 'fft.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-if os.getenv("DATABASE_URL","") != "":
+if os.getenv("DATABASE_URL", "") != "":
     r = urlparse(os.environ.get("DATABASE_URL"))
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.path.relpath(r.path,"/"),
+            'NAME': os.path.relpath(r.path, "/"),
             'USER': r.user,
             'PASSWORD': r.password,
             'HOST': r.hostname,
             'PORT': r.port,
-            "OPTIONS":{"sslmode": "require"},
+            "OPTIONS": {"sslmode": "require"},
         }
     }
 
@@ -161,4 +161,3 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
