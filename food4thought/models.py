@@ -21,10 +21,10 @@ class Thought(models.Model):
         return reverse('post_detail', args=({self.pk}))
 
 
-class Comment(models.Model):
+class FeedBack(models.Model):
     name = models.CharField(max_length=150, blank=True, default="Anonymous")
-    comment = models.TextField()
-    date_of_comment = models.DateTimeField(auto_now_add=True)
+    message = models.TextField()
+    date_of_feedback = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

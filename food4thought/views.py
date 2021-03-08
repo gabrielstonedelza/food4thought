@@ -1,8 +1,6 @@
-from .models import Thought, Comment, BecomeMember, Testimony
-from .serializers import ThoughtSerializer, CommentSerializer, BecomeMemberSerializer, TestimonySerializer
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from django.shortcuts import get_object_or_404
+from .models import Thought, FeedBack, BecomeMember, Testimony
+from .serializers import ThoughtSerializer, FeedBackSerializer, BecomeMemberSerializer, TestimonySerializer
+
 from rest_framework import viewsets
 
 
@@ -21,9 +19,9 @@ class Just2Day(viewsets.ModelViewSet):
     serializer_class = ThoughtSerializer
 
 
-class CommentOnPost(viewsets.ModelViewSet):
-    queryset = Comment.objects.all().order_by('-date_of_comment')
-    serializer_class = CommentSerializer
+class FeedPost(viewsets.ModelViewSet):
+    queryset = FeedBack.objects.all().order_by('-date_of_feedback')
+    serializer_class = FeedBackSerializer
 
 
 class TestimonyView(viewsets.ModelViewSet):

@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from food4thought.models import Thought, Comment, BecomeMember
+from food4thought.models import Thought, FeedBack, BecomeMember, Testimony
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.db.models import Q
-from .forms import ThoughtForm, CommentsForm, MemberForm
+from .forms import ThoughtForm, FeedBackForm, MemberForm, TestimonyForm
 
 
 def csrf_failure(request, reason=""):
@@ -25,64 +25,13 @@ def post_home(request):
 
 
 def all_posts(request):
-    all_posts = Thought.objects.all().order_by('-date_posted')
+    allThoughts = Thought.objects.all().order_by('-date_posted')
 
     context = {
-        'posts': all_posts
+        'posts': allThoughts
     }
 
     return render(request, 'f4t/allposts.html', context)
-
-
-def thought_detail(request, id):
-    post = get_object_or_404(Thought, id=id)
-
-    comments = Comment.objects.filter(post=post).order_by('-date_of_comment')
-    comments_count = comments.count()
-
-    form = CommentsForm()
-    if request.method == "POST":
-        form = CommentsForm(request.POST)
-        if form.is_valid():
-            name = request.POST.get('name')
-            comment = request.POST.get('comment')
-            comment = Comment.objects.create(name=name,comment=comment)
-            comment.save()
-
-        else:
-            form = CommentsForm()
-
-    if post:
-        post.views += 1
-        post.save()
-
-    context = {
-        "form": form,
-        "post": post,
-        "comments": comments,
-        "comments_count": comments_count,
-    }
-
-    if request.is_ajax():
-        comment = render_to_string("f4t/comment_form.html", context, request=request)
-        return JsonResponse({"comments": comment})
-
-    return render(request, "f4t/post_detail.html", context)
-
-
-def like_post(request, id):
-    post = get_object_or_404(Post, id=id)
-
-    post.likes += 1
-    post.save()
-
-    context = {
-        "post": post,
-    }
-
-    if request.is_ajax():
-        likeblog = render_to_string("f4t/like_section.html", context, request=request)
-        return JsonResponse({"like": likeblog})
 
 
 def create_post(request):
@@ -97,7 +46,7 @@ def create_post(request):
             bible_quotations = form.cleaned_data.get('bible_quotations')
             audio_file = form.cleaned_data.get('audio_content')
             Thought.objects.create(
-                title=title, author=author,  bible_quotations=bible_quotations, audio_content=audio_file)
+                title=title, author=author, bible_quotations=bible_quotations, audio_content=audio_file)
             return redirect('post_home')
 
         else:
@@ -123,14 +72,14 @@ def members(request):
     return render(request, 'f4t/members.html', context)
 
 
-def become_amember(request):
+def become_member(request):
     if request.method == "POST":
         form = MemberForm(request.POST, request.FILES)
         if form.is_valid():
             name = form.cleaned_data.get('name')
             email = form.cleaned_data.get('email')
             phone = form.cleaned_data.get('phone')
-            
+
             BecomeMember.objects.create(name=name, email=email, phone=phone)
             return redirect('members')
 
@@ -152,7 +101,7 @@ def search_queries(request):
     global search_posts, rooms
     query = request.GET.get('q', None)
     if query is not None:
-        search_posts = Post.objects.filter(
+        search_posts = Thought.objects.filter(
             Q(title__icontains=query) |
             Q(subtitle__icontains=query)
         )
@@ -165,3 +114,72 @@ def search_queries(request):
         return JsonResponse({
             'form': html
         })
+
+
+def testimonies(request):
+    all_testimonies = Testimony.objects.all().order_by('-date_of_testimony')
+
+    context = {
+        "testimony": all_testimonies
+    }
+
+    return render(request, "f4t/testimonies.html", context)
+
+
+def create_testimony(request):
+    success_message = ""
+    error_message = ""
+
+    if request.method == "POST":
+        form = TestimonyForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            testimony = form.cleaned_data.get('testimony')
+
+            Testimony.objects.create(name=name, testimony=testimony)
+            return redirect('testimonies')
+
+        else:
+            error_message = "sorry something went wrong"
+    else:
+        form = TestimonyForm()
+
+    context = {
+        "form": form,
+        "error_message": error_message,
+    }
+
+    return render(request, "f4t/testimony_create_form.html", context)
+
+
+def feedbacks(request):
+    all_feeds = FeedBack.objects.all().order_by('-date_of_feedback')
+
+    context = {
+        "allfeeds": all_feeds
+    }
+
+    return render(request, "f4t/feedbacks.html", context)
+
+
+def create_feedback(request):
+    error_message = ""
+    if request.method == "POST":
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            message = form.cleaned_data.get('message')
+
+            Testimony.objects.create(name=name, message=message)
+            return redirect('feedbacks')
+
+        else:
+            error_message = "sorry something went wrong"
+    else:
+        form = FeedBackForm()
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "f4t/new_feedback.html", context)

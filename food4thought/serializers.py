@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Thought, Comment, BecomeMember, Testimony
+from .models import Thought, FeedBack, BecomeMember, Testimony
 
 
 class ThoughtSerializer(serializers.ModelSerializer):
@@ -9,11 +9,11 @@ class ThoughtSerializer(serializers.ModelSerializer):
                   'audio_content', 'date_posted']
 
 
-class CommentSerializer(serializers.ModelSerializer):
+class FeedBackSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comment
-        fields = ['id', 'name', 'comment',
-                  'date_of_comment']
+        model = FeedBack
+        fields = ['id', 'name', 'message',
+                  'date_of_feedback']
 
 
 class BecomeMemberSerializer(serializers.ModelSerializer):
