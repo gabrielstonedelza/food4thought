@@ -91,7 +91,7 @@ if os.getenv("DATABASE_URL", "") != "":
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': os.path.relpath(r.path, "/"),
-            'USER': r.user,
+            'USER': r.username,
             'PASSWORD': r.password,
             'HOST': r.hostname,
             'PORT': r.port,
