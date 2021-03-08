@@ -1,24 +1,7 @@
 @import './variables';
 
-//navbar
-nav{
-    background: #97BC62FF;
-    a.navbar-brand{
-        font-weight: bold;
-        color: white !important;
-    }
+navbar
 
-    #navbarSupportedContent{
-        ul{
-            li{
-                font-weight: bold;
-                a{
-                    color: white !important;
-                }
-            }
-        }
-    }
-}
 
 // for post home
 .my-home-post-wrapper {
@@ -47,22 +30,20 @@ nav{
 // for all posts
 .all-thoughts{
     display: flex;
-    // grid-template-columns: repeat(audo-fit,minmax(350px,1fr));
-    // gap: 1rem;
     gap: 1.5rem;
     flex-wrap: wrap;
 
     .thought-box{
         width: 350px;
-        height: 180px;
+        height: 200px;
         // background-color: #757272;
-        background: #97BC62FF;
+        background: #292929;
         padding: 20px;
         border-radius: 10px;
         // color: #fff !important;
         transition: 1.2s ease;
         p.pcontent{
-            font-size: 18px;
+            font-size: 15px;
         }
 
         &:hover{

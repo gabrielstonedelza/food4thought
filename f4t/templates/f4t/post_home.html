@@ -7,12 +7,6 @@ Thought today
 {% block content %}
 
 <!-- add new thought button  -->
-
-<div class="my-new-thought-button">
-    <a title="Add new thought today" href="{% url 'create_post' %}">
-        <i class="fas fa-plus-circle"></i>
-    </a>
-</div>
 <br>
 <div class="container">
     <div class="my-home-post-wrapper">
@@ -29,15 +23,9 @@ Thought today
                 <audio src="{{ post.audio_content.url }}" controls controlsList="nodownload" type="audio/mp3" ></audio>
                 <br>
                 <div>
-
-                <!-- <a class="animated bounce infinite" title="download attached file" href="{{ post.audio_content.url }}"  download="{{post.title}}" target="_blank">
-                    <i class="fas fa-download ml -3"></i> 
-                    </a> -->
                 </div>
             </div>
             {% endif %}
-
-            
         {% endfor %}
     </div>
     <br>

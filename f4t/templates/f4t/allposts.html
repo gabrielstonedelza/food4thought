@@ -7,26 +7,59 @@ All Thoughts
 {% block content %}
 <br>
 <div class="container">
-    <h3 class="text-center">All Thoughts</h3>
+    <h4 class="text-center">All Thoughts</h4>
     <br>
     <div class="all-thoughts">
-        {% for post in posts %}
-        <a href="{{ post.get_absolute_url }}" style="color:#fff;">
+        {% for post in allThoughts %}
             <div class="thought-box z-depth-1-half">
                 {% if post.audio_content %}
                     <audio controls controlsList="nodownload" src="{{ post.audio_content.url }}"></audio>
                 {% endif %}
                 <br>
-                <p class="pcontent">{{ post.title|slice:":40" }}...</p>
-                <div class="actions">
-                    <i class="fas fa-eye mr-2"></i>{{ post.views }} 
-                     |
-                    <i class="fas fa-thumbs-up ml-2"></i> {{ post.likes }} | {{ post.date_posted |naturaltime }}
-                </div>
+                <p class="pcontent mt-2">{{ post.title}}</p>
+                <small>By: {{ post.author }}</small>
+                <br>
+                    <small>{{ post.date_posted|date:" d M Y"}}</small>
             </div>
-        </a>
+        
         {% endfor %}
+        <br>
     </div>
+    <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-circle pg-blue pt-3">
+                  {% if allThoughts.has_previous %}
+                    <li class="page-item "><a href="?page=1" class="page-link">First</a></li>
+                    <li class="page-item ">
+                      <a class="page-link" href="?page={{ page_range.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                  {% endif %}
+  
+                  {% for c in allThoughts.paginator.page_range %}
+                    {% if allThoughts.number == c %}
+                      <li class="page-item active">
+                        <a href="?page={{ c }}" class="page-link">{{ c }}</a>
+                      </li>
+                    {% elif c > allThoughts.number|add:"-3" and c < allThoughts.number|add:"-3" %}
+                      {{ c }}
+                    {% else %}
+                      <li class="page-item"><a a href="?page={{ c }}" class="page-link">{{c }}</a></li>
+                  {% endif %}
+                {% endfor %}
+  
+                {% if allThoughts.has_next %}
+                  <li class="page-item">
+                      <a href="?page={{ allThoughts.next_page_number }}" class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a href="?page={{ allThoughts.paginator.num_pages }}" class="page-link">Last</a></li>
+                {% endif %}
+                </ul>
+              </nav>
   <br>
 </div>
 <br>

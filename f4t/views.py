@@ -26,9 +26,12 @@ def post_home(request):
 
 def all_posts(request):
     allThoughts = Thought.objects.all().order_by('-date_posted')
+    paginator = Paginator(allThoughts, 15)
+    page = request.GET.get('page')
+    allThoughts = paginator.get_page(page)
 
     context = {
-        'posts': allThoughts
+        'allThoughts': allThoughts
     }
 
     return render(request, 'f4t/allposts.html', context)
