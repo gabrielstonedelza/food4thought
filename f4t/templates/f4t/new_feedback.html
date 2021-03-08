@@ -16,8 +16,11 @@ What you think
         </div>
     </div>
     <div class="container">
-        <h3 class="text-center">What do you think about foodforthought</h3>
-        <form method="post" >
+        <h3 class="text-center">What do you think about foodforthought?</h3>
+        <br>
+        <div class="row">
+            <div class="col-xs-5 col-sm-6 col-md-8 ml-auto mr-auto">
+                <form method="post" >
             {% csrf_token %}
             <div class="form-group">
                 {{ form|crispy }}
@@ -26,6 +29,9 @@ What you think
                 <button type="submit" class="butt">Add</button>
             </div>
         </form>
+            </div>
+        </div>
+        
     </div>
 </div>
 

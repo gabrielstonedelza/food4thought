@@ -33,6 +33,7 @@ class FeedBack(models.Model):
 class BecomeMember(models.Model):
     name = models.CharField(max_length=200, unique=True)
     email = models.EmailField(max_length=250, unique=True)
+    profession = models.CharField(max_length=100,blank=True,help_text="If can leave this field blank if you don't to your profession")
     date_joined = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -161,6 +161,24 @@ button.butt:hover {
   padding: 20px;
 }
 
+.my-feedbacks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.my-feedbacks .feedbox {
+  padding: 20px;
+  background: #292929;
+  border-radius: 10px;
+}
+
 .my-thought-members {
   display: -ms-grid;
   display: grid;
@@ -179,11 +197,6 @@ button.butt:hover {
   text-transform: capitalize;
 }
 
-.my-thought-members .member-box small {
-  font-weight: bold;
-  font-size: 15px;
-}
-
 .addmember,
 .my-new-thought-button {
   padding: 20px;
@@ -195,7 +208,7 @@ button.butt:hover {
 .addmember a .fa-plus-circle,
 .my-new-thought-button a .fa-plus-circle {
   font-size: 30px;
-  color: #2c4607;
+  color: #292929;
 }
 
 .about-us {

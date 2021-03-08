@@ -6,15 +6,58 @@ Feedbacks
 
 {% block content %}
 <div class="my-new-thought-button">
-    <a title="Add new thought today" href="{% url 'new_feedback' %}">
+    <a title="Add new feed" href="{% url 'new_feedback' %}">
         <i class="fas fa-plus-circle"></i>
     </a>
 </div>
 <div class="container">
-    <div class="row">
-        <h3>Feedbacks</h3>
-        <br>
-
+    <h3 class="text-center">Feedbacks</h3>
+    <br>
+    <div class="row my-feedbacks">
+        {% for feed in all_feeds %}
+            <div class="col-xs-5 col-sm-6 col-md-10 ml-auto mr-auto feedbox mb-3">
+                <h4>{{ feed.name }}</h4>
+                <blockquote>
+                    {{ feed.message }}
+                </blockquote>
+                <small class="text-muted">{{ feed.date_of_feedback|date:"d M Y"}}</small>
+            </div>
+            {% endfor %}
     </div>
+    <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-circle pg-blue pt-3">
+                  {% if all_feeds.has_previous %}
+                    <li class="page-item "><a href="?page=1" class="page-link">First</a></li>
+                    <li class="page-item ">
+                      <a class="page-link" href="?page={{ page_range.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                  {% endif %}
+  
+                  {% for c in all_feeds.paginator.page_range %}
+                    {% if all_feeds.number == c %}
+                      <li class="page-item active">
+                        <a href="?page={{ c }}" class="page-link">{{ c }}</a>
+                      </li>
+                    {% elif c > all_feeds.number|add:"-3" and c < all_feeds.number|add:"-3" %}
+                      {{ c }}
+                    {% else %}
+                      <li class="page-item"><a a href="?page={{ c }}" class="page-link">{{c }}</a></li>
+                  {% endif %}
+                {% endfor %}
+  
+                {% if all_feeds.has_next %}
+                  <li class="page-item">
+                      <a href="?page={{ all_feeds.next_page_number }}" class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a href="?page={{ all_feeds.paginator.num_pages }}" class="page-link">Last</a></li>
+                {% endif %}
+                </ul>
+              </nav>
 </div>
 {% endblock %}

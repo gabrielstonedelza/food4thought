@@ -17,15 +17,19 @@ Add testimony
     </div>
     <div class="container">
         <h3 class="text-center">How has foodforthought done for you?</h3>
-        <form method="post" >
-            {% csrf_token %}
-            <div class="form-group">
-                {{ form|crispy }}
-            </div>
-            <div class="form-group">
-                <button type="submit" class="butt">Add</button>
-            </div>
-        </form>
+        <br>
+        <div class="col-xs-5 col-sm-5 col-md-10 ml-auto mr-auto">
+
+            <form method="post" >
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="butt">Add</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

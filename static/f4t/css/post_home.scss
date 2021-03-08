@@ -33,9 +33,9 @@
 
 // for all posts
 .all-thoughts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
   .thought-box {
     background: #292929;
     padding: 20px;
@@ -72,24 +72,29 @@
     padding: 20px;
   }
 }
+.my-feedbacks {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
+  .feedbox {
+    padding: 20px;
+    background: #292929;
+    border-radius: 10px;
+  }
+}
 // for members
 .my-thought-members {
   display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
   .member-box {
-      padding: 20px;
-    h4{
-        text-transform: capitalize;
+    padding: 20px;
+    h4 {
+      text-transform: capitalize;
     }
     background: #292929;
     border-radius: 10px;
-
-    small {
-      font-weight: bold;
-      font-size: 15px;
-    }
   }
 }
 
@@ -102,7 +107,7 @@
 
   a .fa-plus-circle {
     font-size: 30px;
-    color: rgb(44, 70, 7);
+    color: #292929;
   }
 }
 .about-us {

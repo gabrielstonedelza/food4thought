@@ -67,6 +67,9 @@ def create_post(request):
 
 def members(request):
     all_members = BecomeMember.objects.all().order_by('-date_joined')
+    paginator = Paginator(all_members, 15)
+    page = request.GET.get('page')
+    all_members = paginator.get_page(page)
 
     context = {
         'all_members': all_members
@@ -77,13 +80,14 @@ def members(request):
 
 def become_member(request):
     if request.method == "POST":
-        form = MemberForm(request.POST, request.FILES)
+        form = MemberForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data.get('name')
             email = form.cleaned_data.get('email')
-            phone = form.cleaned_data.get('phone')
+            profession = form.cleaned_data.get('profession')
 
-            BecomeMember.objects.create(name=name, email=email, phone=phone)
+            BecomeMember.objects.create(
+                name=name, email=email, profession=profession)
             return redirect('members')
 
     else:
@@ -121,9 +125,12 @@ def search_queries(request):
 
 def testimonies(request):
     all_testimonies = Testimony.objects.all().order_by('-date_of_testimony')
+    paginator = Paginator(all_testimonies, 15)
+    page = request.GET.get('page')
+    all_testimonies = paginator.get_page(page)
 
     context = {
-        "testimony": all_testimonies
+        "all_testimonies": all_testimonies
     }
 
     return render(request, "f4t/testimonies.html", context)
@@ -157,9 +164,12 @@ def create_testimony(request):
 
 def feedbacks(request):
     all_feeds = FeedBack.objects.all().order_by('-date_of_feedback')
+    paginator = Paginator(all_feeds, 15)
+    page = request.GET.get('page')
+    all_feeds = paginator.get_page(page)
 
     context = {
-        "allfeeds": all_feeds
+        "all_feeds": all_feeds
     }
 
     return render(request, "f4t/feedbacks.html", context)
@@ -173,7 +183,7 @@ def create_feedback(request):
             name = form.cleaned_data.get('name')
             message = form.cleaned_data.get('message')
 
-            Testimony.objects.create(name=name, message=message)
+            FeedBack.objects.create(name=name, message=message)
             return redirect('feedbacks')
 
         else:
