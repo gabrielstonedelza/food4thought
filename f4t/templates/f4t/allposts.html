@@ -10,7 +10,7 @@ All Thoughts
     <h4 class="text-center">All Thoughts</h4>
     <br>
     <div class="all-thoughts">
-        {% for post in allThoughts %}
+        {% for post in allThoughts  %}
             <div class="thought-box z-depth-1-half">
                 {% if post.audio_content %}
                     <audio controls controlsList="nodownload" src="{{ post.audio_content.url }}"></audio>

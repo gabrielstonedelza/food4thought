@@ -4,12 +4,12 @@
 Our Members
 {% endblock %}
 {% block content%}
+<div class="addmember">
+    <a title="join food for thought" href='{% url "new_member" %}'>
+        <i class="fas fa-plus-circle"></i>
+    </a>
+</div>
 <div class="container">
-    <div class="addmember">
-        <a title="join food for thought" href='{% url "new_member" %}'>
-            <i class="fas fa-plus-circle"></i>
-        </a>
-    </div>
     <br>
     <h3 class="text-center">Meet our members</h3>
     <br>
@@ -19,10 +19,11 @@ Our Members
     <br>
     <br>
     <div class="my-thought-members">
-        <br>
         {% for member in all_members %}
             <div class="member-box z-depth-1-half">
-                <small>{{ member.name }}</small>
+                <h4>{{ member.name }}</h4>
+                <br>
+                <small>Date Joined: {{ member.date_joined|date:"d M Y" }}</small>
             </div>
         {% endfor %}
     </div>

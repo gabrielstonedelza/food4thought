@@ -9,23 +9,24 @@ Thought today
 <!-- add new thought button  -->
 <br>
 <div class="container">
-    <div class="my-home-post-wrapper">
-        <!-- latest post goes here -->
+    <div class="row thought2day text-center">
         {% for post in post_today %}
-            <h3 class="text-center">Title: {{ post.title }}</h3>
-            <br>
-            <H6>By: {{ post.author }}</H6>
+            <div class="col-xs-6 col-sm-6 col-md-8 ml-auto mr-auto">
+                <h3 class="text-center">Title: {{ post.title }}</h3>
+                <br>
+                <H6>By: {{ post.author }}</H6>
             <p>Bible Quotations: {{ post.bible_quotations }}</p>
             <b class="mb-3">Listen to the audio content</b>
             <br>
             {% if post.audio_content %}
-            <div class="my-audio">
+            <div class="my-audio mt-3">
                 <audio src="{{ post.audio_content.url }}" controls controlsList="nodownload" type="audio/mp3" ></audio>
                 <br>
                 <div>
                 </div>
             </div>
             {% endif %}
+            </div>
         {% endfor %}
     </div>
     <br>
