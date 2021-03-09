@@ -29,10 +29,8 @@ SECRET_KEY = get_random_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['.connectdjango.com',
-#                  '104.131.53.109', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['.connectdjango.com','167.71.167.132', 'localhost', '127.0.0.1', ]
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 # Application definition
 
@@ -85,34 +83,18 @@ WSGI_APPLICATION = 'fft.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-if os.getenv("DATABASE_URL", "") != "":
-    r = urlparse(os.environ.get("DATABASE_URL"))
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.path.relpath(r.path, "/"),
-            'USER': r.username,
-            'PASSWORD': r.password,
-            'HOST': r.hostname,
-            'PORT': r.port,
-            "OPTIONS": {"sslmode": "require"},
-        }
+DATABASES = {
+    'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'food4thought',
+        'USER': 'food4thoughtuser',
+        'PASSWORD': 'Royalsjas5?',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
-
-
-else:
-    DATABASES = {
-        'default': {
-            # 'ENGINE': 'django.db.backends.sqlite3',
-            # 'NAME': BASE_DIR / 'db.sqlite3',
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'food4thought',
-            'USER': 'food4thoughtuser',
-            'PASSWORD': 'Royalsjas5?',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
