@@ -140,7 +140,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 AWS_ACCESS_KEY_ID = "NBIYVCJIJY77E7KFAD63"
-AWS_ACCESS_SECRET_KEY = "VxQbeMCxulggnPcQKju/sJghnI78gTqHBHcXlR9mtqg"
+AWS_SECRET_ACCESS_KEY = "VxQbeMCxulggnPcQKju/sJghnI78gTqHBHcXlR9mtqg"
 AWS_STORAGE_BUCKET_NAME = "foodforthought-space"
 AWS_S3_ENDPOINT_URL = "https://nyc3.digitaloceanspaces.com"
 AWS_S3_OBJECT_PARAMETERS = {
@@ -154,3 +154,5 @@ STATICFILES_DIRS = [
 STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL,AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
