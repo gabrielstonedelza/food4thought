@@ -8,8 +8,7 @@ from django.utils import timezone
 class Thought(models.Model):
     title = models.CharField(max_length=300)
     author = models.CharField(max_length=100)
-    bible_quotations = models.CharField(max_length=500)
-    views = models.IntegerField(default=0, blank=True)
+    bible_quotations = models.CharField(max_length=500,blank=True)
     audio_content = models.FileField(
         upload_to="post_audio_files", blank=True, help_text="select audio content")
     date_posted = models.DateTimeField(default=timezone.now)
