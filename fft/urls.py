@@ -8,5 +8,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('f4t.urls')),
     path('',include('food4thought.urls')),
-]
-# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
