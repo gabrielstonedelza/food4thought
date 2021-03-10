@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'corsheaders',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -130,13 +131,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATIC_URL = ""
 CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+AWS_ACCESS_KEY_ID = "NBIYVCJIJY77E7KFAD63"
+AWS_ACCESS_SECRET_KEY = "VxQbeMCxulggnPcQKju/sJghnI78gTqHBHcXlR9mtqg"
+AWS_STORAGE_BUCKET_NAME = "foodforthought-space"
+AWS_S3_ENDPOINT_URL = "https://nyc3.digitaloceanspaces.com"
+AWS_S3_OBJECT_PARAMETERS = {
+    'Cache-Contrl': 'max-age=86400'
+}
+AWS_LOCATION = "foodforthought-static"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL,AWS_LOCATION)
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto2Storage"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto2Storage"
