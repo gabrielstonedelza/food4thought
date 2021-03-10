@@ -139,10 +139,10 @@ CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-AWS_ACCESS_KEY_ID = "NBIYVCJIJY77E7KFAD63"
-AWS_SECRET_ACCESS_KEY = "VxQbeMCxulggnPcQKju/sJghnI78gTqHBHcXlR9mtqg"
-AWS_STORAGE_BUCKET_NAME = "foodforthought-space"
-AWS_S3_ENDPOINT_URL = "https://nyc3.digitaloceanspaces.com"
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', default='')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', default='')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='')
+AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL', default='')
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400'
 }
