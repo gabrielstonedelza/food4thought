@@ -144,7 +144,7 @@ AWS_SECRET_ACCESS_KEY = "VxQbeMCxulggnPcQKju/sJghnI78gTqHBHcXlR9mtqg"
 AWS_STORAGE_BUCKET_NAME = "foodforthought-space"
 AWS_S3_ENDPOINT_URL = "https://nyc3.digitaloceanspaces.com"
 AWS_S3_OBJECT_PARAMETERS = {
-    'Cache-Contrl': 'max-age=86400'
+    'CacheControl': 'max-age=86400'
 }
 AWS_LOCATION = "foodforthought-static"
 STATICFILES_DIRS = [
