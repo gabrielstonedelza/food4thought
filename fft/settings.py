@@ -147,6 +147,7 @@ AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL', default='')
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400'
 }
+AWS_LOCATION = config('AWS_LOCATION', default='')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
