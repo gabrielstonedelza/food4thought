@@ -29,7 +29,8 @@ SECRET_KEY = get_random_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.connectdjango.com','204.48.17.15', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['.connectdjango.com',
+                 '204.48.17.15', 'localhost', '127.0.0.1', ]
 
 
 # Application definition
@@ -151,8 +152,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL,AWS_LOCATION)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
