@@ -29,7 +29,7 @@ SECRET_KEY = get_random_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.connectdjango.com','167.71.167.132', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['.connectdjango.com','204.48.17.15', 'localhost', '127.0.0.1', ]
 
 
 # Application definition
