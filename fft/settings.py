@@ -152,5 +152,5 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL,AWS_LOCATION)
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto2Storage"
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto2Storage"
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
