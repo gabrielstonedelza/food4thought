@@ -132,8 +132,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-
-STATIC_URL = ""
 CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
