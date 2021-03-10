@@ -136,7 +136,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
