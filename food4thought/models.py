@@ -57,7 +57,7 @@ class Question(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"{self.name} asked a question"
+        return self.question
 
 
 class Answers(models.Model):
