@@ -1,5 +1,5 @@
-from .models import Thought, FeedBack, BecomeMember, Testimony
-from .serializers import ThoughtSerializer, FeedBackSerializer, BecomeMemberSerializer, TestimonySerializer
+from .models import Thought, FeedBack, BecomeMember, Testimony, Question, Answers, Message
+from .serializers import ThoughtSerializer, FeedBackSerializer, BecomeMemberSerializer, TestimonySerializer, QuestionSerializer, AnswersSerializer
 
 from rest_framework import viewsets
 
@@ -27,3 +27,13 @@ class FeedPost(viewsets.ModelViewSet):
 class TestimonyView(viewsets.ModelViewSet):
     queryset = Testimony.objects.all().order_by('-date_of_testimony')
     serializer_class = TestimonySerializer
+
+
+class QuestionsView(viewsets.ModelViewSet):
+    queryset = Question.objects.all().order_by('-date_posted')
+    serializer_class = QuestionSerializer
+
+
+class AnswersView(viewsets.ModelViewSet):
+    queryset = Answers.objects.all().order_by('-date_posted')
+    serializer_class = AnswersSerializer
