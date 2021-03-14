@@ -76,6 +76,9 @@ class Answers(models.Model):
     def dequestion(self):
         return self.question.question
 
+    @property
+    def question_owner(self):
+        return self.question.name
 
 
 class Message(models.Model):
