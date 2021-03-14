@@ -36,6 +36,10 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class AnswersSerializer(serializers.ModelSerializer):
+    question_question = serializers.ReadOnlyField(source='question.question')
+
     class Meta:
         model = Answers
-        fields = ['id', 'question', 'answer', 'date_posted']
+        fields = "__all__"
+
+

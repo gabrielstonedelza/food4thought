@@ -1,5 +1,6 @@
 from .models import Thought, FeedBack, BecomeMember, Testimony, Question, Answers, Message
-from .serializers import ThoughtSerializer, FeedBackSerializer, BecomeMemberSerializer, TestimonySerializer, QuestionSerializer, AnswersSerializer
+from .serializers import ThoughtSerializer, FeedBackSerializer, BecomeMemberSerializer, TestimonySerializer, \
+    QuestionSerializer, AnswersSerializer
 
 from rest_framework import viewsets
 

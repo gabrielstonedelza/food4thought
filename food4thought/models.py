@@ -59,6 +59,10 @@ class Question(models.Model):
     def __str__(self):
         return self.question
 
+    @property
+    def question_question(self):
+        return self.question
+
 
 class Answers(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -66,7 +70,12 @@ class Answers(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"{self.question.name}'s question was answered"
+        return self.question.question
+
+    @property
+    def dequestion(self):
+        return self.question.question
+
 
 
 class Message(models.Model):
