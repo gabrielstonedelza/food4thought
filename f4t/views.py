@@ -83,11 +83,10 @@ def become_member(request):
         form = MemberForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data.get('name')
-            email = form.cleaned_data.get('email')
             profession = form.cleaned_data.get('profession')
 
             BecomeMember.objects.create(
-                name=name, email=email, profession=profession)
+                name=name, profession=profession)
             return redirect('members')
 
     else:

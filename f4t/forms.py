@@ -22,7 +22,7 @@ class ThoughtForm(forms.ModelForm):
 class MemberForm(forms.ModelForm):
     class Meta:
         model = BecomeMember
-        fields = ['name', 'email', 'profession']
+        fields = ['name', 'profession']
 
 
 class TestimonyForm(forms.ModelForm):

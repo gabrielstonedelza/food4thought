@@ -19,7 +19,7 @@ class FeedBackSerializer(serializers.ModelSerializer):
 class BecomeMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = BecomeMember
-        fields = ['id', 'name', 'email', 'date_joined']
+        fields = ['id', 'name', 'date_joined']
 
 
 class TestimonySerializer(serializers.ModelSerializer):
@@ -32,7 +32,7 @@ class TestimonySerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ['id', 'name', 'email', 'question', 'answered', 'date_posted']
+        fields = ['id', 'name', 'question', 'answered', 'date_posted']
 
 
 class AnswersSerializer(serializers.ModelSerializer):
